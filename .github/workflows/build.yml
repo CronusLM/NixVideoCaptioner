@@ -21,6 +21,8 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+            extra-substituters = https://cache.nixos-cuda.org
+            extra-trusted-public-keys = cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M=
 
       - name: Setup Cachix
         uses: cachix/cachix-action@v15
@@ -34,7 +36,7 @@ jobs:
         continue-on-error: true
 
       - name: Build (CUDA enabled)
-        run: nix build .#videocaptioner-cuda --print-build-logs
+        run: nix build .#videocaptioner-cuda --print-build-logs --accept-flake-config
 
       - name: Push to Cachix
         run: cachix push nixvideocaptioner $(readlink -f result)

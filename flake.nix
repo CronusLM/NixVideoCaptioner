@@ -2,9 +2,13 @@
   description = "Nix package for VideoCaptioner — AI-powered video captioning tool";
 
   nixConfig = {
-    extra-substituters = [ "https://nixvideocaptioner.cachix.org" ];
+    extra-substituters = [
+      "https://nixvideocaptioner.cachix.org"
+      "https://cache.nixos-cuda.org"
+    ];
     extra-trusted-public-keys = [
       "nixvideocaptioner.cachix.org-1:3QkMnLMG2KCXzSMvovOVwqd2ZEFc7w6qHZ8WHqr7SpQ="
+      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
     ];
   };
 

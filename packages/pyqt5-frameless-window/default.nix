@@ -4,6 +4,7 @@
   fetchurl,
   pyqt5,
   xcffib,
+  setuptools,
 }:
 
 buildPythonPackage rec {
@@ -16,12 +17,16 @@ buildPythonPackage rec {
     hash = "sha256-QS7yC82ExhSv/a5GoRs2B1rzSR17gt9uG/6OinCMJKw=";
   };
 
+  nativeBuildInputs = [
+    setuptools
+  ];
+
   propagatedBuildInputs = [
     pyqt5
     xcffib
   ];
 
-  pythonImportsCheck = [ "PyQt5.FramelessWindow" ];
+  # import check skipped: importing qframelesswindow triggers PyQt5.QtX11Extras which is absent in nixpkgs
 
   meta = {
     description = "A frameless window widget for PyQt5";

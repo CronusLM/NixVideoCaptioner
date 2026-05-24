@@ -5,6 +5,7 @@
   pyqt5,
   pyqt5-frameless-window,
   darkdetect,
+  setuptools,
 }:
 
 buildPythonPackage rec {
@@ -16,6 +17,10 @@ buildPythonPackage rec {
     url = "https://files.pythonhosted.org/packages/source/p/pyqt-fluent-widgets/pyqt_fluent_widgets-${version}.tar.gz";
     hash = "sha256-CkLxJatEBxxjhgWxFa6cnWkT+7C/Zq3WUOaUNXY7lSc=";
   };
+
+  nativeBuildInputs = [
+    setuptools
+  ];
 
   propagatedBuildInputs = [
     pyqt5
