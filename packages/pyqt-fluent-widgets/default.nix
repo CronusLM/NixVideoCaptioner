@@ -15,7 +15,7 @@ buildPythonPackage rec {
   src = fetchPypi {
     pname = "PyQt-Fluent-Widgets";
     inherit version;
-    hash = "sha256-uv72ZxIEj2m5oS3/+BaT2oWzKbCFZnl/0KfoNPP7Sg=";
+    hash = "sha256-CkLxJatEBxxjhgWxFa6cnWkT+7C/Zq3WUOaUNXY7lSc=";
   };
 
   propagatedBuildInputs = [

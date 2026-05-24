@@ -14,7 +14,7 @@ buildPythonPackage rec {
   src = fetchPypi {
     pname = "PyQt5-Frameless-Window";
     inherit version;
-    hash = "sha256-ZdJ+9kHfpq/Yz5FNkUyG3Mv7bR8b9BfRXhYZbCMoX6k=";
+    hash = "sha256-QS7yC82ExhSv/a5GoRs2B1rzSR17gt9uG/6OinCMJKw=";
   };
 
   propagatedBuildInputs = [
