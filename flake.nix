@@ -1,6 +1,13 @@
 {
   description = "Nix package for VideoCaptioner — AI-powered video captioning tool";
 
+  nixConfig = {
+    extra-substituters = [ "https://nixvideocaptioner.cachix.org" ];
+    extra-trusted-public-keys = [
+      "nixvideocaptioner.cachix.org-1:3QkMnLMG2KCXzSMvovOVwqd2ZEFc7w6qHZ8WHqr7SpQ="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
