@@ -1,19 +1,18 @@
 {
   lib,
   buildPythonPackage,
-  fetchPypi,
+  fetchurl,
   pyqt5,
   xcffib,
 }:
 
 buildPythonPackage rec {
-  pname = "PyQt5-Frameless-Window";
+  pname = "pyqt5-frameless-window";
   version = "0.8.1";
   pyproject = true;
 
-  src = fetchPypi {
-    pname = "PyQt5-Frameless-Window";
-    inherit version;
+  src = fetchurl {
+    url = "https://files.pythonhosted.org/packages/source/P/PyQt5-Frameless-Window/pyqt5_frameless_window-${version}.tar.gz";
     hash = "sha256-QS7yC82ExhSv/a5GoRs2B1rzSR17gt9uG/6OinCMJKw=";
   };
 
