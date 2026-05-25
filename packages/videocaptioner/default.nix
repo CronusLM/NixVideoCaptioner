@@ -30,6 +30,10 @@ buildPythonApplication {
     pythonPackages.hatch-vcs
   ];
 
+  postPatch = ''
+    substituteInPlace pyproject.toml --replace 'PyQt5==5.15.11' 'PyQt5>=5.15.10'
+  '';
+
   dependencies = with pythonPackages; [
     requests
     openai
@@ -49,6 +53,7 @@ buildPythonApplication {
     psutil
     gputil
     faster-whisper
+    edge-tts
   ];
 
   doCheck = false;
