@@ -27,23 +27,14 @@ buildPythonPackage rec {
   ];
 
   postPatch = ''
-    python3 -c "
-import re
-with open('qframelesswindow/utils/linux_utils.py', 'r') as f:
-    content = f.read()
-content = content.replace(
-    'from PyQt5.QtX11Extras import QX11Info',
-    '''try:
-    from PyQt5.QtX11Extras import QX11Info
-except ImportError:
-    class QX11Info:
-        @staticmethod
-        def isPlatformX11():
-            return False'''
-)
-with open('qframelesswindow/utils/linux_utils.py', 'w') as f:
-    f.write(content)
-"
+    sed -i '/^from PyQt5.QtX11Extras import QX11Info$/c\
+try:\
+    from PyQt5.QtX11Extras import QX11Info\
+except ImportError:\
+    class QX11Info:\
+        @staticmethod\
+        def isPlatformX11():\
+            return False' qframelesswindow/utils/linux_utils.py
   '';
 
   # import check skipped: importing qframelesswindow triggers PyQt5.QtX11Extras which is absent in nixpkgs
